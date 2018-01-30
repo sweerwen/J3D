@@ -50,7 +50,7 @@ J3D.Loader.parseJSONScene = function(renderer, scene, jscene, jmeshes, jsanim) {
             g.vertices.push(new THREE.Vector3(vs[i], vs[i+1], vs[i+2]));
         }
 
-        var ns = jmeshes[mi].tris;
+        var ns = jmeshes[mi].indices;
         for(var i = 0, n = ns.length; i < n; i += 3) {
             g.faces.push(new THREE.Face3(ns[i], ns[i+2], ns[i+1]));
         }
@@ -58,7 +58,7 @@ J3D.Loader.parseJSONScene = function(renderer, scene, jscene, jmeshes, jsanim) {
         // add uvs, colors etc...
 
         g.computeFaceNormals();
-        // g.computeBoundingSphere();
+        g.computeBoundingSphere();
         g.normalsNeedUpdate = true;
 
         jmeshes[mi] = g;
