@@ -1,6 +1,7 @@
 {
 $meshes:{ 
-	"$it.Id$": { 
+	"$it.Name$": { 
+		"Id":"$it.Id$",
 		"name": "$it.Name$",
 		"vertices": [$it.Vertices; separator=","$],	 
 		$if(exportNormals)$
